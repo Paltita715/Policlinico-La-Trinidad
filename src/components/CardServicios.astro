@@ -1,0 +1,20 @@
+---
+interface Props{
+    servicio:string,
+    src:string,
+    p:string,
+    boton?:boolean
+    variant?: boolean
+}
+const {servicio, src, p, boton, variant=false} = Astro.props
+---
+<article>
+    <div class="flex justify-between mb-2 items-center">
+        <h3 class="text-white font-bold text-xl capitalize" id={servicio}>{servicio}</h3>
+        <a class=`bg-[#acf1bd] font-semibold text-[#003449] rounded-xl text-center ${boton ? "p-2":""}` href={`./de-apoyo/${servicio}`}>{boton ? "explorar":""}</a>
+    </div>
+    <section class="flex md:flex-row flex-col items-center rounded-lg bg-[#165269] justify-between">
+        <img src=`/img/Servicios/${src}` alt={`icono ${servicio}`} class={`xl:w-96 lg:w-72 md:w-72 ${variant ? "order-last" : ""}`}>
+        <p class="p-4">{p}</p>
+    </section>
+</article>

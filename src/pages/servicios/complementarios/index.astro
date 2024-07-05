@@ -1,0 +1,31 @@
+---
+import CardServicios from "@/components/CardServicios.astro"
+import Layout from "@/layouts/Layout.astro"
+---
+
+<Layout title="Servicios Complementarios">
+    <aside class="absolute w-44 h-full hidden lg:block">
+        <h2 class="font-bold uppercase bg-[#003449] rounded-l-lg py-4 text-center mb-3 text-white">Contenido</h2>
+        <nav>
+            <ul class="flex flex-col">
+                <li><a class="block w-full px-3 py-4 hover:bg-[#003449] hover:text-[#d5eef1] rounded-l-xl" href="#Psiologia" id="#psicologia">Psiologia</a></li>
+                <li><a class="block w-full px-3 py-4 hover:bg-[#003449] hover:text-[#d5eef1] rounded-l-xl" href="#Podologia" id="#podologia">Podologia</a></li>
+                <li><a class="block w-full px-3 py-4 hover:bg-[#003449] hover:text-[#d5eef1] rounded-l-xl" href="#Optometria" id="#optometria">Optometria</a></li>
+                <li><a class="block w-full px-3 py-4 hover:bg-[#003449] hover:text-[#d5eef1] rounded-l-xl" href="#Terapia Fisica" id="#terapia fisica">Terapia Fisica</a></li>
+                <li><a class="block w-full px-3 py-4 hover:bg-[#003449] hover:text-[#d5eef1] rounded-l-xl" href="#Terapia de lenguaje" id="#terapia de lenguaje">Terapia de lenguaje</a></li>
+                <li><a class="block w-full px-3 py-4 hover:bg-[#003449] hover:text-[#d5eef1] rounded-l-xl" href="#Terapia de aprendizaje" id="#terapia de aprendizaje">Terapia de aprendizaje</a></li>
+                <li><a class="block w-full px-3 py-4 hover:bg-[#003449] hover:text-[#d5eef1] rounded-l-xl" href="#Reflexologia Podal" id="#reflexologia podal">Reflexologia Podal</a></li>
+            </ul>
+        </nav>
+    </aside>
+    <main class="relative lg:ml-44 mt-16 h-full xl:h-screen overflow-auto bg-[#003449] rounded-b-lg rounded-tr-lg p-10 flex flex-col gap-10 mb-10">
+        <h1 class="uppercase font-black text-[#d5eef1] text-2xl text-center">Servicos Complementarios</h1>
+        <CardServicios p="El servicio de psicología ofrece apoyo y tratamiento para problemas emocionales y mentales, como ansiedad, depresión y estrés. Los psicólogos trabajan con los pacientes para mejorar su salud mental y bienestar general a través de terapias personalizadas." servicio="Psicologia" src="/COMPLEMENTARIOS/psicologia.png"/>
+        <CardServicios p="La podología se especializa en el cuidado y tratamiento de los pies, abordando afecciones como uñas encarnadas, callosidades y pie diabético. Los podólogos utilizan técnicas avanzadas para aliviar el dolor y mejorar la salud podal." servicio="Podologia" src="/COMPLEMENTARIOS/podologia.avif" variant/>
+        <CardServicios p="El servicio de optometría realiza exámenes completos de la vista para detectar problemas de visión y prescribir lentes correctivos. Además, ofrece asesoramiento sobre el cuidado ocular para mantener una visión saludable a largo plazo." servicio="Optometria" src="/COMPLEMENTARIOS/optometria.jpg"/>
+        <CardServicios p="La terapia física se enfoca en la rehabilitación y mejora de la movilidad y función física. Utiliza técnicas y ejercicios avanzados para tratar lesiones, dolor crónico y condiciones postquirúrgicas, ayudando a los pacientes a recuperar su calidad de vida." servicio="Terapia Fisica" src="/COMPLEMENTARIOS/terapia-fisica.jpg" variant/>
+        <CardServicios p="La terapia de lenguaje ayuda a niños y adultos a superar dificultades en el habla, lenguaje y comunicación. Mediante programas personalizados, los terapeutas logran mejoras significativas en la comunicación y el desarrollo del lenguaje." servicio="Terapia de lenguaje" src="/COMPLEMENTARIOS/terapia-de-lenguaje.jpg"/>
+        <CardServicios p="La terapia de aprendizaje ofrece apoyo especializado a niños con dificultades académicas. Diseña estrategias y programas educativos individualizados para mejorar el rendimiento escolar y el desarrollo cognitivo, asegurando un aprendizaje efectivo y adaptado a sus necesidades." servicio="Terapia de aprendizaje" src="/COMPLEMENTARIOS/terapia-de-aprendizaje.png" variant/>
+        <CardServicios p="El servicio de reflexología podal se basa en la aplicación de presión en puntos específicos de los pies, que corresponden a diferentes órganos y sistemas del cuerpo. Esta terapia complementaria busca aliviar el estrés, mejorar la circulación y promover la salud general. Los reflexólogos utilizan técnicas precisas para estimular las zonas reflejas, ayudando a equilibrar el cuerpo y mejorar el bienestar físico y emocional de los pacientes." servicio="Reflexologia Podal" src="/COMPLEMENTARIOS/reflexologia-podal.jpg"/>
+    </main>
+</Layout>

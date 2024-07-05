@@ -1,0 +1,44 @@
+---
+import SimpleSlider from '@/components/SimpleSlider'
+import Layout from '@/layouts/Layout.astro'
+import { getPublicaciones } from '@/services/postService'
+const { publicaciones } = await getPublicaciones()
+---
+<Layout title="Centro Medico | Policlinico La Trinidad">
+    <main>
+        <h1 class="hidden">Centro medico policlinico La Trinidad</h1>
+        <SimpleSlider client:load/>
+        <section class="max-w-screen-lg mx-auto mt-16">
+            <h2 class="uppercase font-extrabold text-4xl text-center mb-16 text-[#0b2935]">Últimas publicaciones</h2>
+            {
+                publicaciones.map((publi : {id:number; titulo:string; contenido:string; imagen:string}) => (
+                    <article class="p-2 mb-4 rounded">
+                        <h3 class="text-center uppercase text-xl font-semibold mb-2">{publi.titulo}</h3>
+                        <p class="bg-[#003449] mb-4 rounded p-2 max-w-4xl mx-auto overflow-hidden">{publi.contenido}</p>
+                        <img src={`https://api-policlinico-production.up.railway.app/storage/${publi.imagen}`} alt={publi.imagen} class="h-auto mx-auto"/>
+                        <hr class="border-none text-transparent bg-[#003449] h-[2px] my-4 rounded-3xl"/>
+                    </article>
+                ))
+            }
+        </section>
+        <section class="flex flex-col md:flex-row max-w-7xl mx-auto">
+            <article class="flex flex-col lg:flex-row bg-[#acf1bd] rounded-t-xl md:rounded-tr-none md:rounded-l-xl flex-1">
+                <div class="flex justify-center flex-col gap-5 text-center mx-5">
+                    <h4 class="font-bold text-black text-xl">Ubicanos</h4>
+                    <div class="grid grid-cols-2 lg:grid md:hidden md:grid-cols-1">
+                        <span>Av. La Unión 612 - Mz 35<br>Lt. G.P.P.J.J.</span>
+                        <span>Inca Pachacutec - V.M.T<br>Lima - Lima</span>
+                    </div>
+                </div>
+                <div class="flex-1">
+                    <iframe title="Localizacion del Policlinico" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2757.7636660113094!2d-76.94981591403894!3d-12.175856881966752!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105b91c7eaa4d59%3A0x2446918179d18056!2sPoliclinico%20LA%20TRINIDAD!5e0!3m2!1ses!2sus!4v1714710357696!5m2!1ses!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="h-full p-2 w-full"/>
+                </div>
+            </article>
+            <article class="bg-light-blue flex flex-col gap-5 py-6 px-10 md:rounded-bl-none md:rounded-r-xl rounded-b-xl text-center">
+                <a href="" class="p-3 hover:scale-105 ease-in-out duration-200 border border-[#003449] rounded-xl bg-[#acf1bd] hover:bg-[#003449] hover:text-[#acf1bd] block px-10">Resultados de Laboratorio</a>
+                <a href="" class="p-3 hover:scale-105 ease-in-out duration-200 border border-[#003449] rounded-xl bg-[#acf1bd] hover:bg-[#003449] hover:text-[#acf1bd] block px-10">Farmacia</a>
+                <a href="" class="p-3 hover:scale-105 ease-in-out duration-200 border border-[#003449] rounded-xl bg-[#acf1bd] hover:bg-[#003449] hover:text-[#acf1bd] block px-10">Servicios</a>
+            </article>
+        </section>
+    </main>
+</Layout>

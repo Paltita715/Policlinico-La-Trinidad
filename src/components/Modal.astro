@@ -1,0 +1,43 @@
+---
+interface Props{
+    textButton: string
+}
+const {textButton} = Astro.props
+---
+<button class="openModal mt-5 md:mt-0 lg:p-4 p-3 rounded-2xl hover:scale-105 lg:hover:scale-110 ease-in-out duration-300 text-[#003449] text-sm lg:text-base bg-[#d5eef1] hover:bg-[#acf1bd] active:bg-[#d5eef1]">
+    {textButton}
+</button>
+
+<dialog class="modal bg-white p-5 rounded-lg backdrop:backdrop-blur-sm w-full md:w-[600px]">
+    <button class="closeModal top-7 right-7 fixed bg-black rounded-full p-2 bg-opacity-30">
+        <img src="/img/icons/close.svg" alt="Cerrar modal">
+    </button>
+    <slot/>
+</dialog>
+
+<script>
+document.addEventListener('astro:page-load', () => {
+    const openModals = document.querySelectorAll('.openModal');
+    const modals = document.querySelectorAll('.modal');
+    const closeModals = document.querySelectorAll('.closeModal');
+
+    openModals.forEach((openModal, index) => {
+        const modal = modals[index] as HTMLDialogElement;
+        const closeModal = closeModals[index];
+
+        openModal.addEventListener('click', () => {
+            modal.showModal();
+        });
+
+        closeModal.addEventListener('click', () => {
+            modal.close();
+        });
+
+        modal.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.close();
+            }
+        });
+    });
+});
+</script>
