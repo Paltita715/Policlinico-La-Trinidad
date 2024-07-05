@@ -5,7 +5,7 @@ import CarruselAdmin from "@/components/CarruselAdmin";
 ---
 
 <Layout title="Administrador">
-    <main>
+    <main  id="panelDeAdministrador" class="hidden">
         <section>
             <CarruselAdmin client:load/>
         </section>
@@ -13,5 +13,50 @@ import CarruselAdmin from "@/components/CarruselAdmin";
         <section>
             <PublicacionesAdmin client:load/>
         </section>
+        <button type="button" class="m-auto bg-mint-green p-1.5 border-solid rounded-full" id="cerrarSesion">Cerrar sesión</button>
+        <script>
+            document.addEventListener('astro:page-load', () => {
+                fetch('https://api-policlinico-production.up.railway.app/api/session-validation')
+                .then((response) => {
+                    switch(response.status){
+                        case 200:
+                            document.querySelector('#panelDeAdministrador')?.classList.remove('hidden');
+                            break;
+                        case 401:
+                            alert('que?')
+                            window.location.href = 'login';
+                            break;
+                        case 500:
+                            alert("Error al verificar la sesión, vuelva a intentarlo más tarde.");
+                            window.location.href = 'login';
+                            break;
+                    }
+                })
+                .catch((error) => {
+                    alert("Error al tratar de comunicarse con el servidor, vuelva a intentarlo más tarde.");
+                    window.location.href = 'login';
+                });
+
+                const button = document.querySelector('#cerrarSesion');
+                button?.addEventListener('click', () => {
+                    fetch('https://api-policlinico-production.up.railway.app/api/logout')
+                    .then((response) => {
+                        switch(response.status){
+                            case 200:
+                                break;
+                            case 500:
+                                alert('Error en el servidor (aún así usted saldrá de aquí, no se preocupe)');
+                                break;
+                        }
+
+                        window.location.href = 'login';
+                    })
+                    .catch((error) => {
+                        alert("Error al tratar de comunicarse con el servidor (volverá a la página de inicio de sesión de todas maneras)");
+                        window.location.href = 'login';
+                    })
+                })
+            });
+        </script>
     </main>
 </Layout>
