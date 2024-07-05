@@ -38,6 +38,7 @@ import Layout from "@/layouts/Layout.astro"
                             Accept: "application/json, text/plain, */*",
                             "Content-Type": "application/json"
                         },
+                        credentials: 'include',
                         body: JSON.stringify({
                             name: form.usr.value,
                             password: form.contra.value

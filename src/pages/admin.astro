@@ -16,14 +16,16 @@ import CarruselAdmin from "@/components/CarruselAdmin";
         <button type="button" class="m-auto bg-mint-green p-1.5 border-solid rounded-full" id="cerrarSesion">Cerrar sesión</button>
         <script>
             document.addEventListener('astro:page-load', () => {
-                fetch('https://api-policlinico-production.up.railway.app/api/session-validation')
+                fetch('https://api-policlinico-production.up.railway.app/api/session-validation', {
+                    method: 'GET',
+                    credentials: 'include',
+                })
                 .then((response) => {
                     switch(response.status){
                         case 200:
                             document.querySelector('#panelDeAdministrador')?.classList.remove('hidden');
                             break;
                         case 401:
-                            alert('que?')
                             window.location.href = 'login';
                             break;
                         case 500:
@@ -39,7 +41,10 @@ import CarruselAdmin from "@/components/CarruselAdmin";
 
                 const button = document.querySelector('#cerrarSesion');
                 button?.addEventListener('click', () => {
-                    fetch('https://api-policlinico-production.up.railway.app/api/logout')
+                    fetch('https://api-policlinico-production.up.railway.app/api/logout', {
+                        method: 'GET',
+                        credentials: 'include'
+                    })
                     .then((response) => {
                         switch(response.status){
                             case 200:
