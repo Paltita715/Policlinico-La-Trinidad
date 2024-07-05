@@ -23,6 +23,7 @@ import Layout from "@/layouts/Layout.astro"
                 </table>
             </div>
             <script>
+                const apiUrl = import.meta.env.API_URL;
                 document.addEventListener('astro:page-load', () => {
 
                     const FARMACO_NO_ATTRIBUTES = 6;
@@ -49,7 +50,7 @@ import Layout from "@/layouts/Layout.astro"
 
                     function createTable() {
                         const table = document.getElementById("listaFarmacos");
-                        getResponse('https://api-policlinico-production.up.railway.app/api/farmacos')
+                        getResponse(`${apiUrl}/farmacos`)
                             .then(medicinas => {
                                 while (table?.firstChild)
                                     table.removeChild(table.firstChild);
