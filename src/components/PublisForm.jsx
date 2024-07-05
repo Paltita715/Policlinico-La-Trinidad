@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { addPublicacion, updatePublicacion } from '../services/postService'
 
-const ModalReact = ({ getAllPublicaciones, selectedPubli, isModalOpen, handleModalClose }) => {
+const PublisForm = ({ getAllPublicaciones, selectedPubli, isModalOpen, handleModalClose }) => {
     const [titulo, setTitulo] = useState('');
     const [contenido, setContenido] = useState('');
     const [imagen, setImagen] = useState(null);
@@ -96,4 +96,4 @@ const ModalReact = ({ getAllPublicaciones, selectedPubli, isModalOpen, handleMod
     )
 }
 
-export default ModalReact;
+export default PublisForm;
