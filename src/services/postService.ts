@@ -29,8 +29,7 @@ export const addPublicacion = async (formData: FormData) => {
     if (!res.ok) {
         throw new Error(`Error: ${res.statusText}`);
     }
-    const data = await res.json();
-    console.log(data)
+    const data = await res.json()
     return data
 }
 
