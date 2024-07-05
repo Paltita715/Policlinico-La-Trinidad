@@ -1,7 +1,5 @@
-const apiUrl = import.meta.env.API_URL;
-
 export const getPublicaciones = async () => {
-    const res = await fetch(`${apiUrl}/publicaciones`,{
+    const res = await fetch(`https://api-policlinico-production.up.railway.app/api/publicaciones`,{
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -12,7 +10,7 @@ export const getPublicaciones = async () => {
 }
 
 export const getPublicacionById = async (id: string) => {
-    const res = await fetch(`${apiUrl}/publicaciones/${id}`,{
+    const res = await fetch(`https://api-policlinico-production.up.railway.app/api/publicaciones/${id}`,{
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -23,7 +21,7 @@ export const getPublicacionById = async (id: string) => {
 }
 
 export const addPublicacion = async (formData: FormData) => {
-    const res = await fetch(`${apiUrl}/publicaciones`, {
+    const res = await fetch(`https://api-policlinico-production.up.railway.app/api/publicaciones`, {
         method: "POST",
         body: formData,
     })
@@ -36,7 +34,7 @@ export const addPublicacion = async (formData: FormData) => {
 }
 
 export const deletePublicacion = async (id:number) => {
-    const res = await fetch(`${apiUrl}/publicacionesdelete/${id}`, {
+    const res = await fetch(`https://api-policlinico-production.up.railway.app/api/publicacionesdelete/${id}`, {
         method: "DELETE",
     })
 
@@ -49,7 +47,7 @@ export const deletePublicacion = async (id:number) => {
 }
 
 export const updatePublicacion = async(formData:FormData, id:number) => {
-    const res = await fetch(`${apiUrl}/publicacionesupdate/${id}`,{
+    const res = await fetch(`https://api-policlinico-production.up.railway.app/api/publicacionesupdate/${id}`,{
         method: "POST",
         body: formData
     })
@@ -58,7 +56,7 @@ export const updatePublicacion = async(formData:FormData, id:number) => {
 }
 
 export const getCarouselImages = async () => {
-    const res = await fetch(`${apiUrl}/carruselimagenes`,{
+    const res = await fetch(`https://api-policlinico-production.up.railway.app/api/carruselimagenes`,{
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -69,7 +67,7 @@ export const getCarouselImages = async () => {
 }
 
 export const getCarouselImageById = async (id: string) => {
-    const res = await fetch(`${apiUrl}/carruselimagenes/${id}`,{
+    const res = await fetch(`https://api-policlinico-production.up.railway.app/api/carruselimagenes/${id}`,{
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -80,7 +78,7 @@ export const getCarouselImageById = async (id: string) => {
 }
 
 export const addCarouselImage = async (formData: FormData) => {
-    const res = await fetch(`${apiUrl}/carruselimagenes`, {
+    const res = await fetch(`https://api-policlinico-production.up.railway.app/api/carruselimagenes`, {
         method: "POST",
         body: formData,
     })
@@ -90,7 +88,7 @@ export const addCarouselImage = async (formData: FormData) => {
 }
 
 export const deleteCarouselImage = async (id:number) => {
-    const res = await fetch(`${apiUrl}/carruselimagenesdelete/${id}`, {
+    const res = await fetch(`https://api-policlinico-production.up.railway.app/api/carruselimagenesdelete/${id}`, {
         method: "DELETE",
     })
 
@@ -103,7 +101,7 @@ export const deleteCarouselImage = async (id:number) => {
 }
 
 export const updateCarouselImage = async(formData:FormData, id:number) => {
-    const res = await fetch(`${apiUrl}/carruselimagenesupdate/${id}`,{
+    const res = await fetch(`https://api-policlinico-production.up.railway.app/api/carruselimagenesupdate/${id}`,{
         method: "POST",
         body: formData
     })
