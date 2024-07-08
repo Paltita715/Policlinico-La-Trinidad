@@ -7,7 +7,7 @@ import Layout from "@/layouts/Layout.astro";
         <div id="txt"></div>
         <script>
             document.addEventListener("astro:page-load", () => {
-                fetch("https://api-policlinico-production.up.railway.app/api/farmacos")
+                fetch("https://api.policlinicolatrinidad.com/api/farmacos")
                 .then((response) => {
                     if(response.ok){
                         response.text().then((msg) => {

@@ -49,7 +49,7 @@ import Layout from "@/layouts/Layout.astro"
 
                     function createTable() {
                         const table = document.getElementById("listaFarmacos");
-                        getResponse('https://api-policlinico-production.up.railway.app/api/farmacos')
+                        getResponse('https://api.policlinicolatrinidad.com/api/farmacos')
                             .then(medicinas => {
                                 while (table?.firstChild)
                                     table.removeChild(table.firstChild);
