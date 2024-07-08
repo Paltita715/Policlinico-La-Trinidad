@@ -1,6 +1,9 @@
 ---
 import Layout from "@/layouts/Layout.astro"
-import { getPublicacionById } from '@/services/postService';
+import { getPublicacionById } from '@/services/postService'
+
+const apiRute = import.meta.env.PUBLIC_API_POLICLINICO
+
 const {id} = Astro.params
 
 let publi
@@ -19,5 +22,5 @@ if(id){
         </div>
     </div>
     <p>{publi.contenido}</p>
-    <img src={`https://api.policlinicolatrinidad.com/storage/${publi.imagen}`} alt={publi.imagen} />
+    <img src={`${apiRute}/storage/${publi.imagen}`} alt={publi.imagen} />
 </Layout>

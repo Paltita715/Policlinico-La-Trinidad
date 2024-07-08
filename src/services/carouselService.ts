@@ -1,5 +1,7 @@
+const apiRute = import.meta.env.PUBLIC_API_POLICLINICO
+
 export const getCarouselImages = async () => {
-    const res = await fetch(`https://api.policlinicolatrinidad.com/api/carruselimagenes`,{
+    const res = await fetch(`${apiRute}/api/carruselimagenes`,{
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -10,7 +12,7 @@ export const getCarouselImages = async () => {
 }
 
 export const getCarouselImageById = async (id: string) => {
-    const res = await fetch(`https://api.policlinicolatrinidad.com/api/carruselimagenes/${id}`,{
+    const res = await fetch(`${apiRute}/api/carruselimagenes/${id}`,{
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -21,7 +23,7 @@ export const getCarouselImageById = async (id: string) => {
 }
 
 export const addCarouselImage = async (formData: FormData) => {
-    const res = await fetch(`https://api.policlinicolatrinidad.com/api/carruselimagenes`, {
+    const res = await fetch(`${apiRute}/api/carruselimagenes`, {
         method: "POST",
         body: formData,
     })
@@ -31,7 +33,7 @@ export const addCarouselImage = async (formData: FormData) => {
 }
 
 export const deleteCarouselImage = async (id:number) => {
-    const res = await fetch(`https://api.policlinicolatrinidad.com/api/carruselimagenesdelete/${id}`, {
+    const res = await fetch(`${apiRute}/api/carruselimagenesdelete/${id}`, {
         method: "DELETE",
     })
 
@@ -44,7 +46,7 @@ export const deleteCarouselImage = async (id:number) => {
 }
 
 export const updateCarouselImage = async(formData:FormData, id:number) => {
-    const res = await fetch(`https://api.policlinicolatrinidad.com/api/carruselimagenesupdate/${id}`,{
+    const res = await fetch(`${apiRute}/api/carruselimagenesupdate/${id}`,{
         method: "POST",
         body: formData
     })

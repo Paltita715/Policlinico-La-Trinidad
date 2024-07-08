@@ -2,6 +2,8 @@ import PublisForm from './PublisForm';
 import { getPublicaciones, deletePublicacion } from '@/services/postService'
 import { useState, useEffect } from 'react'
 
+const apiRute = import.meta.env.PUBLIC_API_POLICLINICO
+
 const PublicacionesAdmin = () => {
     const [publis, setPublis] = useState([]);
     const [selectedPubli, setSelectedPubli] = useState(null);
@@ -65,7 +67,7 @@ const PublicacionesAdmin = () => {
                             </div>
                         </div>
                         <p className='mb-2'>{publi.contenido}</p>
-                        <img className='max-h-60 mx-auto' src={`https://api.policlinicolatrinidad.com/storage/${publi.imagen}`} alt={publi.imagen} />
+                        <img className='max-h-60 mx-auto' src={`${apiRute}/storage/${publi.imagen}`} alt={publi.imagen} />
                     </article>
                 ))
             }

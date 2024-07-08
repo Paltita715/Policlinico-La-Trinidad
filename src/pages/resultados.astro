@@ -6,8 +6,9 @@ import Layout from "@/layouts/Layout.astro";
     <main>
         <div id="txt"></div>
         <script>
+            const apiRute = import.meta.env.PUBLIC_API_POLICLINICO
             document.addEventListener("astro:page-load", () => {
-                fetch("https://api.policlinicolatrinidad.com/api/farmacos")
+                fetch(`${apiRute}/api/farmacos`)
                 .then((response) => {
                     if(response.ok){
                         response.text().then((msg) => {
