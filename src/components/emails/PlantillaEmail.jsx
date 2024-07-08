@@ -79,7 +79,7 @@ export const CodepenChallengersEmail = ({
           </Text>
         </Section>
         <Section className="text-center">
-          <Button style={button} href="/">
+          <Button style={button} href="https://www.policlinicolatrinidad.com/">
             Policlinio La Trinidad
           </Button>
         </Section>
