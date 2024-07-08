@@ -1,5 +1,7 @@
+const apiRute = import.meta.env.PUBLIC_API_POLICLINICO
+
 export const getPublicaciones = async () => {
-    const res = await fetch(`https://api.policlinicolatrinidad.com/api/publicaciones`,{
+    const res = await fetch(`${apiRute}/api/publicaciones`,{
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -10,7 +12,7 @@ export const getPublicaciones = async () => {
 }
 
 export const getPublicacionById = async (id: string) => {
-    const res = await fetch(`https://api.policlinicolatrinidad.com/api/publicaciones/${id}`,{
+    const res = await fetch(`${apiRute}/api/publicaciones/${id}`,{
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -21,7 +23,7 @@ export const getPublicacionById = async (id: string) => {
 }
 
 export const addPublicacion = async (formData: FormData) => {
-    const res = await fetch(`https://api.policlinicolatrinidad.com/api/publicaciones`, {
+    const res = await fetch(`${apiRute}/api/publicaciones`, {
         method: "POST",
         body: formData,
     })
@@ -34,7 +36,7 @@ export const addPublicacion = async (formData: FormData) => {
 }
 
 export const deletePublicacion = async (id:number) => {
-    const res = await fetch(`https://api.policlinicolatrinidad.com/api/publicacionesdelete/${id}`, {
+    const res = await fetch(`${apiRute}/api/publicacionesdelete/${id}`, {
         method: "DELETE",
     })
 
@@ -47,7 +49,7 @@ export const deletePublicacion = async (id:number) => {
 }
 
 export const updatePublicacion = async(formData:FormData, id:number) => {
-    const res = await fetch(`https://api.policlinicolatrinidad.com/api/publicacionesupdate/${id}`,{
+    const res = await fetch(`${apiRute}/api/publicacionesupdate/${id}`,{
         method: "POST",
         body: formData
     })

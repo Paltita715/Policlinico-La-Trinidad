@@ -3,6 +3,8 @@ import { useEffect, useState, useRef } from "react"
 import { register } from 'swiper/element/bundle'
 import CarruselForm from "./CarruselForm"
 
+const apiRute = import.meta.env.PUBLIC_API_POLICLINICO
+
 register()
 
 const CarruselAdmin = () => {
@@ -67,7 +69,7 @@ const CarruselAdmin = () => {
                 imgs.map(img => (
                     <swiper-slide class="text-center flex justify-center items-center w-fit relative">
                         <button className='absolute top-0 right-0 bg-red-500 py-2 px-3' onClick={() => handleDelete(img.id)}>Borrar imagen</button>
-                        <img src={`https://api.policlinicolatrinidad.com/storage/${img.imagen}`} alt={img.alt} className="h-[27rem]"/>
+                        <img src={`${apiRute}/storage/${img.imagen}`} alt={img.alt} className="h-[27rem]"/>
                     </swiper-slide>
                 ))
             }
