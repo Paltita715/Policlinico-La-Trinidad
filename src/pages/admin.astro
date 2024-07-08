@@ -16,7 +16,7 @@ import CarruselAdmin from "@/components/CarruselAdmin";
         <button type="button" class="m-auto bg-mint-green p-1.5 border-solid rounded-full" id="cerrarSesion">Cerrar sesión</button>
         <script>
             document.addEventListener('astro:page-load', () => {
-                fetch('https://api-policlinico-production.up.railway.app/api/session-validation', {
+                fetch('https://api.policlinicolatrinidad.com/api/session-validation', {
                     method: 'GET',
                     credentials: 'include',
                 })
@@ -41,7 +41,7 @@ import CarruselAdmin from "@/components/CarruselAdmin";
 
                 const button = document.querySelector('#cerrarSesion');
                 button?.addEventListener('click', () => {
-                    fetch('https://api-policlinico-production.up.railway.app/api/logout', {
+                    fetch('https://api.policlinicolatrinidad.com/api/logout', {
                         method: 'GET',
                         credentials: 'include'
                     })

@@ -65,7 +65,7 @@ const PublicacionesAdmin = () => {
                             </div>
                         </div>
                         <p className='mb-2'>{publi.contenido}</p>
-                        <img className='max-h-60 mx-auto' src={`https://api-policlinico-production.up.railway.app/storage/${publi.imagen}`} alt={publi.imagen} />
+                        <img className='max-h-60 mx-auto' src={`https://api.policlinicolatrinidad.com/storage/${publi.imagen}`} alt={publi.imagen} />
                     </article>
                 ))
             }
