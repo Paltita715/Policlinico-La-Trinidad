@@ -1,7 +1,9 @@
 ---
 import Layout from "@/layouts/Layout.astro"
-import { getPublicaciones } from '@/services/postService';
-const { publicaciones } = await getPublicaciones();
+import { getPublicaciones } from '@/services/postService'
+const { publicaciones } = await getPublicaciones()
+
+const apiRute = import.meta.env.PUBLIC_API_POLICLINICO
 ---
 
 <Layout title="xd">
@@ -16,7 +18,7 @@ const { publicaciones } = await getPublicaciones();
                     </div>
                 </div>
                 <p>{publi.contenido}</p>
-                <img src={`https://api-policlinico-production.up.railway.app/storage/${publi.imagen}`} alt={publi.imagen} />
+                <img src={`${apiRute}/storage/${publi.imagen}`} alt={publi.imagen} />
             </article>
         ))
     }

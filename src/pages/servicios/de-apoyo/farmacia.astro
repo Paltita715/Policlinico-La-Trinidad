@@ -23,6 +23,7 @@ import Layout from "@/layouts/Layout.astro"
                 </table>
             </div>
             <script>
+                const apiRute = import.meta.env.PUBLIC_API_POLICLINICO
                 document.addEventListener('astro:page-load', () => {
 
                     const FARMACO_NO_ATTRIBUTES = 6;
@@ -49,7 +50,7 @@ import Layout from "@/layouts/Layout.astro"
 
                     function createTable() {
                         const table = document.getElementById("listaFarmacos");
-                        getResponse('https://api-policlinico-production.up.railway.app/api/farmacos')
+                        getResponse(`${apiRute}/api/farmacos`)
                             .then(medicinas => {
                                 while (table?.firstChild)
                                     table.removeChild(table.firstChild);

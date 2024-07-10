@@ -1,6 +1,8 @@
-import { getCarouselImages } from '@/services/postService'
+import { getCarouselImages } from '@/services/carouselService'
 import { register } from 'swiper/element/bundle'
 import { useEffect, useState } from "react"
+
+const apiRute = import.meta.env.PUBLIC_API_POLICLINICO
 
 register()
 
@@ -46,7 +48,7 @@ const SimpleSlider = () => {
 			{
 				imgs.map(img => (
 					<swiper-slide key={img.id} class="text-center flex justify-center items-center w-fit relative">
-						<img src={`https://api-policlinico-production.up.railway.app/storage/${img.imagen}`} alt={img.alt} className="h-[27rem]"/>
+						<img src={`${apiRute}/storage/${img.imagen}`} alt={img.alt} className="h-[27rem]"/>
 					</swiper-slide>
 				))
 			}

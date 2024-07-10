@@ -3,6 +3,7 @@ import SimpleSlider from '@/components/SimpleSlider'
 import Layout from '@/layouts/Layout.astro'
 import { getPublicaciones } from '@/services/postService'
 const { publicaciones } = await getPublicaciones()
+const apiRute = import.meta.env.PUBLIC_API_POLICLINICO
 ---
 <Layout title="Centro Medico | Policlinico La Trinidad">
     <main>
@@ -15,7 +16,7 @@ const { publicaciones } = await getPublicaciones()
                     <article class="p-2 mb-4 rounded">
                         <h3 class="text-center uppercase text-xl font-semibold mb-2">{publi.titulo}</h3>
                         <p class="bg-[#003449] mb-4 rounded p-2 max-w-4xl mx-auto overflow-hidden">{publi.contenido}</p>
-                        <img src={`https://api-policlinico-production.up.railway.app/storage/${publi.imagen}`} alt={publi.imagen} class="h-auto mx-auto"/>
+                        <img src={`${apiRute}/storage/${publi.imagen}`} alt={publi.imagen} class="h-auto mx-auto"/>
                         <hr class="border-none text-transparent bg-[#003449] h-[2px] my-4 rounded-3xl"/>
                     </article>
                 ))

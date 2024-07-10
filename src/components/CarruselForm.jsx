@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { addCarouselImage } from '../services/postService'
+import { addCarouselImage } from '../services/carouselService'
 const CarruselForm = ({getAllImagenes}) => {
     const formRef = useRef()
     const [imagen, setImagen] = useState(null)

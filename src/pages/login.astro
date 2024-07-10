@@ -19,6 +19,7 @@ import Layout from "@/layouts/Layout.astro"
         </p>
     </form>
     <script>
+        const apiRute = import.meta.env.PUBLIC_API_POLICLINICO
         document.addEventListener('astro:page-load', () => {
             
             const form = {
@@ -31,7 +32,7 @@ import Layout from "@/layouts/Layout.astro"
                 evt.preventDefault()
 
                 const requestInfo = new Request(
-                    'https://api-policlinico-production.up.railway.app/api/auth-posts',
+                    `${apiRute}/api/auth-posts`,
                     {
                         method: 'POST',
                         headers:{
