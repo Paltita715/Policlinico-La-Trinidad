@@ -9,6 +9,7 @@ const PublicacionesAdmin = () => {
     const [selectedPubli, setSelectedPubli] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
+    // recuperar publicaciones
     const getAllPublicaciones = async () => {
         const { publicaciones } = await getPublicaciones();
         setPublis(publicaciones);
@@ -18,6 +19,7 @@ const PublicacionesAdmin = () => {
         getAllPublicaciones()
     }, [])
 
+    //borra una publicacion
     const handleDelete = async (id) => {
         if (window.confirm("¿Estas seguro de eliminar esta publicacion?")) {
             await deletePublicacion(id);
@@ -25,6 +27,7 @@ const PublicacionesAdmin = () => {
         }
     }
 
+    // obtener publicacion a editar
     const handleEdit = (publi) => {
         setSelectedPubli(publi);
         setIsModalOpen(true);
@@ -47,6 +50,7 @@ const PublicacionesAdmin = () => {
             <button onClick={handleModalOpen} className="mt-4 md:mt-0 p-3 lg:p-4 rounded-2xl hover:scale-105 lg:hover:scale-110 ease-in-out duration-300 text-[#003449] text-sm lg:text-base bg-[#d5eef1] hover:bg-[#acf1bd] active:bg-[#d5eef1]">
                 Crear nueva publicación
             </button>
+            {/* Modal para agregar o editar una publicacion */}
             <PublisForm
                 getAllPublicaciones={getAllPublicaciones}
                 selectedPubli={selectedPubli}
@@ -57,6 +61,7 @@ const PublicacionesAdmin = () => {
 
         <main className="columns-1 md:columns-2 gap-4">
             {
+                // recuperar todas las publicaciones de la BD
                 publis.map(publi => (
                     <article key={publi.id} className="break-inside-avoid-column bg-[#003449] mb-4 p-4 rounded">
                         <div className='flex flex-col sm:flex-row justify-between items-center mb-2'>

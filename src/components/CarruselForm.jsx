@@ -10,18 +10,21 @@ const CarruselForm = ({getAllImagenes}) => {
         setAlt('')
     }, [])
 
+    //abrir modal
     const handleOpenModal = () => {
         formRef.current.showModal()
         setImagen(null)
         setAlt('')
     }
 
+    //cerrar modal
     const handleCloseModal = () => {
         setImagen(null)
         setAlt('')
         formRef.current.close()
     }
 
+    //añadir una imagen al corrusel
     const handleSubmit = async (e) => {
         e.preventDefault()
         const formData = new FormData()

@@ -4,6 +4,7 @@ import { Resend } from "resend";
 const resend = new Resend(import.meta.env.RESEND_API_KEY)
 
 export const POST: APIRoute = async({request})=>{
+    // recuperar datos para enviar el correo
     const body = await request.json()
     const {to, from, html, subject, text} = body
 
@@ -14,6 +15,7 @@ export const POST: APIRoute = async({request})=>{
         })
     }
 
+    // enviar email
     const send = await resend.emails.send({
         from,
         to,
@@ -22,6 +24,7 @@ export const POST: APIRoute = async({request})=>{
         text
     })
 
+    // verificar envio
     if(send.data){
         return new Response(
             JSON.stringify({

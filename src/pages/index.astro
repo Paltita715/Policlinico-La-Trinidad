@@ -8,10 +8,12 @@ const apiRute = import.meta.env.PUBLIC_API_POLICLINICO
 <Layout title="Centro Medico | Policlinico La Trinidad">
     <main>
         <h1 class="hidden">Centro medico policlinico La Trinidad</h1>
+        <!-- cargar carrusel -->
         <SimpleSlider client:load/>
         <section class="max-w-screen-lg mx-auto mt-16">
             <h2 class="uppercase font-extrabold text-4xl text-center mb-16 text-[#0b2935]">Últimas publicaciones</h2>
             {
+                // Mostrar todas las publicaciones
                 publicaciones.map((publi : {id:number; titulo:string; contenido:string; imagen:string}) => (
                     <article class="p-2 mb-4 rounded">
                         <h3 class="text-center uppercase text-xl font-semibold mb-2">{publi.titulo}</h3>

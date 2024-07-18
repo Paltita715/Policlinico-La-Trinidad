@@ -25,11 +25,12 @@ const { title } = Astro.props
     </head>
     <body>
         <Header/>
-        <!-- <Musica client:load transition:persist/> -->
+        <Musica client:load transition:persist/> <!--en optimizacion-->
         <main class="mx-2 md:mx-7 lg:mx-14">
             <slot />
         </main>
         <Footer/>
+        <!-- script chatBot voiceflow -->
         <script type="text/javascript">
             document.addEventListener('astro:page-load', () => {
                 (function(d, t) {
@@ -49,6 +50,7 @@ const { title } = Astro.props
     </body>
 </html>
 
+<!-- Estilos globales -->
 <style is:global>
     body {
         font-family: 'Onest Variable',Verdana, Tahoma, system-ui;

@@ -8,7 +8,7 @@ const PublisForm = ({ getAllPublicaciones, selectedPubli, isModalOpen, handleMod
     const formRef = useRef();
 
     useEffect(() => {
-        if (selectedPubli) {
+        if (selectedPubli) { // recuperar datos de la publicacion a editar
             setTitulo(selectedPubli.titulo);
             setContenido(selectedPubli.contenido);
             setImagen(null);
@@ -42,9 +42,11 @@ const PublisForm = ({ getAllPublicaciones, selectedPubli, isModalOpen, handleMod
         if (imagen) formData.append('imagen', imagen);
 
         if (selectedPubli) {
+            // editar publicacion
             formData.append('_method', 'PUT')
             await updatePublicacion(formData, selectedPubli.id);
         } else {
+            // agregar publicacion
             await addPublicacion(formData);
         }
         setTitulo('');

@@ -10,6 +10,7 @@ function EmailForm() {
     const delay = 120000;
 
     useEffect(() => {
+        // calcular delay entre envios del formulario
         const lastSubmitTime = localStorage.getItem('lastSubmitTime');
         if (lastSubmitTime) {
             const timeSinceLastSubmit = Date.now() - new Date(lastSubmitTime).getTime();
@@ -30,11 +31,13 @@ function EmailForm() {
         }
     }, []);
 
+    //validar numero de telefono
     const handlePhoneInput = (e) => {
         const value = e.target.value.replace(/\D/g, '');
         e.target.value = value;
     };
 
+    // validar nombre
     const handleNameInput = (e) => {
         const value = e.target.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, '');
         e.target.value = value;
@@ -43,9 +46,11 @@ function EmailForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsLoading(true);
+        // recuperar datoss del formulario
         const formData = new FormData(e.currentTarget);
         const { Nombre, Correo, Telefono, Servicio, Comentario } = Object.fromEntries(formData);
 
+        //plantilla HTML
         const finalHtml = render(
             <PlantillaEmail 
                 Nombre={Nombre} 
@@ -57,6 +62,7 @@ function EmailForm() {
                 pretty: true
             }
         );
+        ///plantilla TXT
         const finalText = render(
             <PlantillaEmail 
                 Nombre={Nombre} 
@@ -70,6 +76,7 @@ function EmailForm() {
         );
 
         try {
+            //enviar correo
             await fetch("/api/sendEmail.json", {
                 method: "POST",
                 headers: {
@@ -84,6 +91,7 @@ function EmailForm() {
                 })
             });
             
+            //calcular delay
             setIsSubmitting(true);
             setTimeLeft(delay / 1000);
             formRef.current.reset();
@@ -142,6 +150,7 @@ function EmailForm() {
                         <span className={`mx-auto ${isLoading ? "hidden" : ""}`}>{!isSubmitting ? "Enviar" : `Enviado`}</span>
                         <img src="/img/carg.svg" alt="icono de carga" className={`h-[24px] mx-auto ${isLoading ? "" : "hidden"}`} />
                     </button>
+                    {/* Calcular estado de carga */}
                     {isSubmitting && !isLoading && <div className="text-center mt-2">Puedes enviar otro formulario en {Math.ceil(timeLeft)} segundos</div>}
             </fieldset>
         </form>
