@@ -25,6 +25,7 @@ export const getCarouselImageById = async (id: string) => {
 export const addCarouselImage = async (formData: FormData) => {
     const res = await fetch(`${apiRute}/api/carruselimagenes`, {
         method: "POST",
+        credentials: 'include',
         body: formData,
     })
 
@@ -35,6 +36,7 @@ export const addCarouselImage = async (formData: FormData) => {
 export const deleteCarouselImage = async (id:number) => {
     const res = await fetch(`${apiRute}/api/carruselimagenesdelete/${id}`, {
         method: "DELETE",
+        credentials: 'include',
     })
 
     if (!res.ok) {
@@ -48,6 +50,7 @@ export const deleteCarouselImage = async (id:number) => {
 export const updateCarouselImage = async(formData:FormData, id:number) => {
     const res = await fetch(`${apiRute}/api/carruselimagenesupdate/${id}`,{
         method: "POST",
+        credentials: 'include',
         body: formData
     })
     const data = await res.json()
