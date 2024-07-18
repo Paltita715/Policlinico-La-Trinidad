@@ -4,11 +4,13 @@ import { useEffect, useState } from "react"
 
 const apiRute = import.meta.env.PUBLIC_API_POLICLINICO
 
+// inicializar swiper elements
 register()
 
 const SimpleSlider = () => {
 	const [imgs, setImgs] = useState([])
 
+	// recuperar imagenes de la BD
     const getAllImagenes = async () => {
         const { imagenes } = await getCarouselImages()
         setImgs(imagenes)
@@ -46,6 +48,7 @@ const SimpleSlider = () => {
 				<img className='h-[27rem]' src="/img/Inicio/slide4.jpg" alt="slide4" />
 			</swiper-slide>
 			{
+				// mostrar todas las imagenes
 				imgs.map(img => (
 					<swiper-slide key={img.id} class="text-center flex justify-center items-center w-fit relative">
 						<img src={`${apiRute}/storage/${img.imagen}`} alt={img.alt} className="h-[27rem]"/>

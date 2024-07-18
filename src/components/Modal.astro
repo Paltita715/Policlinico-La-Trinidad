@@ -4,6 +4,7 @@ interface Props{
 }
 const {textButton} = Astro.props
 ---
+<!-- Modal generica -->
 <button class="openModal mt-5 md:mt-0 lg:p-4 p-3 rounded-2xl hover:scale-105 lg:hover:scale-110 ease-in-out duration-300 text-[#003449] text-sm lg:text-base bg-[#d5eef1] hover:bg-[#acf1bd] active:bg-[#d5eef1]">
     {textButton}
 </button>
@@ -12,6 +13,7 @@ const {textButton} = Astro.props
     <button class="closeModal top-7 right-7 fixed bg-black rounded-full p-2 bg-opacity-30">
         <img src="/img/icons/close.svg" alt="Cerrar modal">
     </button>
+    <!-- resivir el contenido que tendra la modal -->
     <slot/>
 </dialog>
 
@@ -25,10 +27,12 @@ document.addEventListener('astro:page-load', () => {
         const modal = modals[index] as HTMLDialogElement;
         const closeModal = closeModals[index];
 
+        // abrir modal
         openModal.addEventListener('click', () => {
             modal.showModal();
         });
 
+        //cerrar modal
         closeModal.addEventListener('click', () => {
             modal.close();
         });

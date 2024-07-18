@@ -5,12 +5,13 @@ import CarruselForm from "./CarruselForm"
 
 const apiRute = import.meta.env.PUBLIC_API_POLICLINICO
 
-register()
+register() //inicializar swiper elements
 
 const CarruselAdmin = () => {
     const [imgs, setImgs] = useState([])
     const swiperRef = new useRef(null)
 
+    //recuperar las imagenes de la BD para el carrusel
     const getAllImagenes = async () => {
         const { imagenes } = await getCarouselImages()
         setImgs(imagenes)
@@ -19,6 +20,7 @@ const CarruselAdmin = () => {
         }
     }
 
+    //borrar una imagen
     const handleDelete =  async (id) => {
         if (window.confirm("¿Estas seguro de eliminar esta imagen?")) {
             await deleteCarouselImage(id)
@@ -35,6 +37,7 @@ const CarruselAdmin = () => {
         <div className="flex flex-col md:flex-row items-center justify-center py-4 gap-3">
             <h2 className="text-center font-black text-2xl uppercase md:mr-4">Administrador de Imagenes del Carrusel</h2>
             <div className="mt-4 md:mt-0 hover:scale-105 lg:hover:scale-110 ease-in-out duration-300">
+                {/* Modal para agregar o editar una imagen del carrusel */}
                 <CarruselForm getAllImagenes={getAllImagenes}/>
             </div>
         </div>
@@ -66,7 +69,7 @@ const CarruselAdmin = () => {
                 <img className='h-[27rem]' src="/img/Inicio/slide4.jpg" alt="slide4" />
             </swiper-slide>
             {
-                imgs.map(img => (
+                imgs.map(img => ( //mostar todas las imagenes
                     <swiper-slide class="text-center flex justify-center items-center w-fit relative">
                         <button className='absolute top-0 right-0 bg-red-500 py-2 px-3' onClick={() => handleDelete(img.id)}>Borrar imagen</button>
                         <img src={`${apiRute}/storage/${img.imagen}`} alt={img.alt} className="h-[27rem]"/>

@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
+//SVGs para el reproductor
 const Play = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="#003449">
     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -34,6 +35,7 @@ const Next = () => (
   </svg>
 );
 
+// lista de musicas disponibles
 const playList = [
   "/music/msc01.mp3",
   "/music/msc02.mp3",
@@ -65,6 +67,7 @@ export function SongPlayer() {
     };
   }, []);
 
+  // reproducir o pausar musica
   const handleClick = () => {
     setIsPlaying(!isPlaying)
     if (isPlaying) {
@@ -73,13 +76,14 @@ export function SongPlayer() {
       audioRef.current.play()
     }
   }
+  // siguiente musica
   const handlePrev = () => {
     setCurrentSongIndex((prevIndex) =>
       prevIndex === 0 ? playList.length - 1 : prevIndex - 1
     );
     !isPlaying && setIsPlaying(true);
   };
-
+  // musica anterior
   const handleNext = () => {
     setCurrentSongIndex((prevIndex) => (prevIndex + 1) % playList.length);
     !isPlaying && setIsPlaying(true);

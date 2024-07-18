@@ -14,7 +14,9 @@ import {
   Font,
 } from "@react-email/components";
 
-export const CodepenChallengersEmail = ({
+// Plantilla que se enviara al correo
+
+const PlantillaEmail = ({
   Nombre,
   Correo,
   Telefono,
@@ -88,7 +90,7 @@ export const CodepenChallengersEmail = ({
   </Html>
 );
 
-export default CodepenChallengersEmail;
+export default PlantillaEmail;
 
 const button = {
   fontSize: "14px",

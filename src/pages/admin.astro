@@ -7,14 +7,17 @@ import CarruselAdmin from "@/components/CarruselAdmin";
 <Layout title="Administrador">
     <main  id="panelDeAdministrador" class="hidden">
         <section>
+            <!-- Administrador del carrusel -->
             <CarruselAdmin client:load/>
         </section>
         <hr class="border-none text-transparent bg-gradient-to-r from-[#003449] h-1 my-8 rounded-3xl"/>
         <section>
+            <!-- Administrador de las publicaciones -->
             <PublicacionesAdmin client:load/>
         </section>
         <button type="button" class="m-auto bg-mint-green p-1.5 border-solid rounded-full" id="cerrarSesion">Cerrar sesión</button>
         <script>
+            // validar login
             const apiRute = import.meta.env.PUBLIC_API_POLICLINICO
             document.addEventListener('astro:page-load', () => {
                 fetch(`${apiRute}/api/session-validation`, {
@@ -40,6 +43,7 @@ import CarruselAdmin from "@/components/CarruselAdmin";
                     window.location.href = 'login';
                 });
 
+                // cerrar sesion
                 const button = document.querySelector('#cerrarSesion');
                 button?.addEventListener('click', () => {
                     fetch(`${apiRute}/api/logout`, {

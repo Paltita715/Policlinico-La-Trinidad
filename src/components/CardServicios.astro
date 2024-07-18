@@ -8,6 +8,10 @@ interface Props{
 }
 const {servicio, src, p, boton, variant=false} = Astro.props
 ---
+
+<!-- para los diferente servicios en las paginas de servicios complementarios y de apoyo
+     El prop variant cambia el orden entre el "p" y el "img" -->
+
 <article>
     <div class="flex justify-between mb-2 items-center">
         <h3 class="text-white font-bold text-xl capitalize" id={servicio}>{servicio}</h3>

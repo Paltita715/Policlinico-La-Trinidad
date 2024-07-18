@@ -3,7 +3,7 @@ import Anchor from "./Anchor.astro";
 import EmailForm from "./EmailForm";
 import Modal from "./Modal.astro";
 ---
-
+<!-- cabezera -->
 <header
   class="rounded-3xl bg-[#d5eef1] justify-between py-4 px-12 mt-10 mb-4 mx-20 hidden lg:flex shadow-md"
 >
@@ -27,6 +27,7 @@ import Modal from "./Modal.astro";
 		<a href="mailto:policlinicolatrinidad@gmail.com" class="hover:-translate-y-1 transition ease-in-out duration-300">
 			<img src="/img/icons/mail.svg" alt="Icono Email" class="aspect-square w-12">
 		</a>
+    <!-- formulario de citas en una modal -->
     <Modal textButton="¡Pida su cita ahora!">
       <EmailForm client:visible/>
     </Modal>
@@ -40,6 +41,7 @@ import Modal from "./Modal.astro";
 	<button id="menu" class="block md:hidden rounded-lg active:bg-[#d5eef1] bg-[#acf1bd]">
 		<img id="icon_menu" src="/img/icons/menu.svg" alt="Imagen de menu" class="w-10">
 	</button>
+  <!-- barra de navegacion -->
 	<ul class="gap-4 items-center text-center hidden md:flex text-xs lg:text-base">
 		<Anchor text="Inicio" href="/" />
 		<Anchor text="Servicios" href="/servicios" />
@@ -47,6 +49,7 @@ import Modal from "./Modal.astro";
 		<Anchor text="Contactanos" href="/contactanos" />
 	</ul>
 </nav>
+<!-- barra de navvegacion para dispositivos moviles -->
 <ul id="bar" class="fixed top-[4.5rem] ml-2 z-50 bg-[#d5eef1]  rounded-[20px] right-0 hidden gap-y-4 p-4 text-center sm:w-[40%] w-full">
   <Anchor text="Inicio" href="/" />
   <Anchor text="Servicios" href="/servicios" />
@@ -54,6 +57,7 @@ import Modal from "./Modal.astro";
   <Anchor text="Contactanos" href="/contactanos" />
 </ul>
 <script>
+  // cambiar estilos a la cabezara segun su posocion
   document.addEventListener('astro:page-load', () => {
   const head = document.getElementById('hdr') as HTMLElement
   const observer = new IntersectionObserver(
