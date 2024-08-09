@@ -84,7 +84,7 @@ function EmailForm() {
                 },
                 body: JSON.stringify({
                     from: `${Nombre} <onboarding@resend.dev>`,
-                    to: "policlinicolatrinidad@gmail.com",
+                    to: "citas.policlinicotrinidad@gmail.com",
                     subject: `Pedido de cita para ${Servicio}`,
                     html: finalHtml,
                     text: finalText
