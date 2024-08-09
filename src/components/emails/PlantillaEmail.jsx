@@ -80,11 +80,6 @@ const PlantillaEmail = ({
             {Comentario}
           </Text>
         </Section>
-        <Section className="text-center">
-          <Button style={button} href="https://www.policlinicolatrinidad.com/">
-            Policlinio La Trinidad
-          </Button>
-        </Section>
       </Container>
     </Body>
   </Html>
